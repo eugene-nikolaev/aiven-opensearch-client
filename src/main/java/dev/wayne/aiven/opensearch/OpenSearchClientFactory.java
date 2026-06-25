@@ -11,6 +11,9 @@ public final class OpenSearchClientFactory {
     private OpenSearchClientFactory() {
     }
 
+    /**
+     * Creates a client using HTTP basic authentication and default JVM TLS verification.
+     */
     public static OpenSearchConnection create(OpenSearchConfig config) {
         var host = config.httpHost();
         var credentialsProvider = new BasicCredentialsProvider();

@@ -25,6 +25,10 @@ public record OpenSearchConfig(URI url, String username, char[] password) {
         }
     }
 
+    /**
+     * Reads connection settings from {@code OPENSEARCH_URL}, {@code OPENSEARCH_USERNAME},
+     * and {@code OPENSEARCH_PASSWORD}.
+     */
     public static OpenSearchConfig fromEnvironment() {
         return from(System.getenv());
     }
