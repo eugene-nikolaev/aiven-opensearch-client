@@ -1,8 +1,7 @@
 package dev.wayne.aiven.opensearch;
 
 public final class Main {
-    private Main() {
-    }
+    private Main() {}
 
     public static void main(String[] args) throws Exception {
         OpenSearchConfig config = OpenSearchConfig.fromEnvironment();

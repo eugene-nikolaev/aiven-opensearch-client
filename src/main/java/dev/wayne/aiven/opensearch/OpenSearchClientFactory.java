@@ -8,8 +8,7 @@ import org.opensearch.client.transport.OpenSearchTransport;
 import org.opensearch.client.transport.httpclient5.ApacheHttpClient5TransportBuilder;
 
 public final class OpenSearchClientFactory {
-    private OpenSearchClientFactory() {
-    }
+    private OpenSearchClientFactory() {}
 
     /**
      * Creates a client using HTTP basic authentication and default JVM TLS verification.
