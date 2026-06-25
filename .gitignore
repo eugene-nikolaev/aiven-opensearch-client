@@ -1,0 +1,16 @@
+target/
+.m2/
+
+.idea/
+*.iml
+*.iws
+out/
+
+.env
+.env.*
+!.env.example
+
+*.log
+*.tmp
+
+.DS_Store
