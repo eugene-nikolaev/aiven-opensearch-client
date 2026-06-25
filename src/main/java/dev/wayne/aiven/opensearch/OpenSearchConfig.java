@@ -26,7 +26,10 @@ public record OpenSearchConfig(URI url, String username, char[] password) {
     }
 
     public static OpenSearchConfig fromEnvironment() {
-        Map<String, String> environment = System.getenv();
+        return from(System.getenv());
+    }
+
+    static OpenSearchConfig from(Map<String, String> environment) {
         return new OpenSearchConfig(
                 URI.create(required(environment, URL_ENV)),
                 required(environment, USERNAME_ENV),
