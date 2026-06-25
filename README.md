@@ -37,6 +37,12 @@ AIVEN_OPENSEARCH_ENV_FILE=/secure/path/opensearch.env ./scripts/run.sh
 ## Build
 
 ```bash
+mvn compile
+```
+
+## Test
+
+```bash
 mvn test
 ```
 
