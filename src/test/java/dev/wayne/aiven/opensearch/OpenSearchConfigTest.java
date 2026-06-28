@@ -74,4 +74,46 @@ class OpenSearchConfigTest {
 
         assertEquals("OPENSEARCH_URL must use the https scheme", exception.getMessage());
     }
+
+    @Test
+    void rejectsBlankUsername() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new OpenSearchConfig(
+                        java.net.URI.create("https://example.com:12345"),
+                        " ",
+                        "secret".toCharArray()
+                )
+        );
+
+        assertEquals("OPENSEARCH_USERNAME must not be blank", exception.getMessage());
+    }
+
+    @Test
+    void rejectsEmptyPassword() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new OpenSearchConfig(
+                        java.net.URI.create("https://example.com:12345"),
+                        "avnadmin",
+                        new char[0]
+                )
+        );
+
+        assertEquals("OPENSEARCH_PASSWORD must not be blank", exception.getMessage());
+    }
+
+    @Test
+    void rejectsUrlWithoutHost() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new OpenSearchConfig(
+                        java.net.URI.create("https:///path"),
+                        "avnadmin",
+                        "secret".toCharArray()
+                )
+        );
+
+        assertEquals("OPENSEARCH_URL must include a host", exception.getMessage());
+    }
 }
