@@ -19,8 +19,8 @@
         <maven.resources.plugin.version>3.3.1</maven.resources.plugin.version>
         <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
 
-        <opensearch.java.version>3.0.0</opensearch.java.version>
-        <httpclient5.version>5.4.4</httpclient5.version>
+        <opensearch.java.version>3.9.0</opensearch.java.version>
+        <httpclient5.version>5.6.1</httpclient5.version>
         <junit.jupiter.version>5.11.4</junit.jupiter.version>
         <slf4j.version>1.7.36</slf4j.version>
     </properties>
