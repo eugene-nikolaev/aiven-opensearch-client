@@ -8,8 +8,8 @@ public final class Main {
             OpenSearchConfig config = OpenSearchConfig.fromEnvironment();
 
             try (OpenSearchConnection connection = OpenSearchClientFactory.create(config)) {
-                var info = connection.client().info();
-                System.out.println(info.version().number());
+                var service = new OpenSearchService(connection.client());
+                System.out.println(service.clusterVersion());
             }
         } catch (IllegalArgumentException exception) {
             System.err.println("Configuration error: " + exception.getMessage());
