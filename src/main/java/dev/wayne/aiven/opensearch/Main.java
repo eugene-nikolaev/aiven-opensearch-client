@@ -1,5 +1,8 @@
 package dev.wayne.aiven.opensearch;
 
+import dev.wayne.aiven.opensearch.monitoring.UpstreamSender;
+import dev.wayne.aiven.opensearch.monitoring.UpstreamSenderFactory;
+
 public final class Main {
     private Main() {}
 
@@ -9,7 +12,9 @@ public final class Main {
 
             try (OpenSearchConnection connection = OpenSearchClientFactory.create(config)) {
                 var service = new OpenSearchService(connection.client());
-                System.out.println(service.clusterVersion());
+                //System.out.println(service.clusterVersion());
+                UpstreamSender sender = UpstreamSenderFactory.sender();
+                sender.sendMetrics("cluster_s", service);
             }
         } catch (IllegalArgumentException exception) {
             System.err.println("Configuration error: " + exception.getMessage());
