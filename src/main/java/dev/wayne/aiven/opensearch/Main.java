@@ -14,7 +14,7 @@ public final class Main {
                 var service = new OpenSearchService(connection.client());
                 //System.out.println(service.clusterVersion());
                 UpstreamSender sender = UpstreamSenderFactory.sender();
-                sender.sendMetrics("cluster_s", service);
+                sender.sendMetrics(service.snapshot());
             }
         } catch (IllegalArgumentException exception) {
             System.err.println("Configuration error: " + exception.getMessage());

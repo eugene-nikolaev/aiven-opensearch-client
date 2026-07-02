@@ -15,5 +15,4 @@ public class StdoutSender implements UpstreamSender {
     //    @Override
 //    public void sendMetrics(String metricsName, String payload) {
 //        System.out.printf("metric: %s, value: %s%n", metricsName, payload);
-//    }
-}
+//   }
